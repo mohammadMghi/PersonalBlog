@@ -23,7 +23,7 @@
             <p class="card-text" id="text-limited-post">{{ str_replace("&nbsp;","",strip_tags($post->content)) }}</p>
             <p class="card-text"><small class="text-muted">آخرین باری که نوشته شده در {{$post->updated_at}}</small></p>
 
-            <a>ادامه مطلب</a>
+            <a href="http://localhost:8000/post/{{$post->slug}}">ادامه مطلب</a>
         </div>
     </div>
     @endforeach
