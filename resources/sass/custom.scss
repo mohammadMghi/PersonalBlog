@@ -1,0 +1,127 @@
+.header {
+  width: 100%;
+  height: 95vh;
+  background-image: url(../views/img/bg-header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 0% 100%);
+  z-index: -1;
+}
+
+.header-content {
+  position: absolute;
+  right: 50%;
+  top: 40%;
+  transform: translateX(300px);
+  letter-spacing: 5px;
+  text-align: center;
+  display: block;
+}
+.header-primary-main {
+  font-size: 50px;
+  display: block;
+}
+.header-primary {
+  display: block;
+}
+.mt-6 {
+  margin-top: 90px;
+}
+
+.btn {
+  position: relative;
+  top: 15px;
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+  }
+  &-white {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.596);
+  }
+  &-info {
+    display: block;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.596);
+  }
+  &-more {
+    text-align: right;
+  }
+}
+
+.main-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+#text-limited-post-head {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
+}
+
+#text-limited-post {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 5em;
+  line-height: 1.8em;
+}
+
+footer {
+  background-color: $footer-color;
+}
+
+ 
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 300px) {
+  .login {
+    min-height: 78vh;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .login {
+    min-height: 70vh;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .login {
+    min-height: 90vh;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .login {
+    min-height: 90vh;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 1200px) {
+  .login {
+    min-height: 80vh;
+  }
+}
