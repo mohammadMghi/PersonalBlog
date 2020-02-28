@@ -34,5 +34,5 @@ Route::group(['prefix' => 'panel'], function () {
     Route::get('/editPostContent' , 'ProfileController@showEditContent')->name('profile.post.edit');
  
 }); 
-
+Route::get('/post/{$slug}' , 'PostController@findPostWithSlug');
 Route::get('/test' , 'ProfileController@test');
