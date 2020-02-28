@@ -35,4 +35,8 @@ Route::group(['prefix' => 'panel'], function () {
  
 }); 
 Route::get('/post/{slu}' , 'PostController@viewPost')->name('findPost');
+
+//all posts
+Route::get('/posts' , 'PostsController@viewPosts')->name('posts');
+
 Route::get('/test' , 'ProfileController@test');
