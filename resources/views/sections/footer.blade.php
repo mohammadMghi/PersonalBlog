@@ -19,7 +19,7 @@
   <!-- Footer Links -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+  <div class="footer-copyright text-center py-3">© 2020 designed by me:
     <a href="https://mdbootstrap.com/education/bootstrap/"> Mohammadmghi.com</a>
   </div>
   <!-- Copyright -->

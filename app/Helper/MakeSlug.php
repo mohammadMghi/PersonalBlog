@@ -9,17 +9,33 @@ class MakeSlug
     public function make($string)
     {
         $slug = Str::slug($string);
-        $slug = $this->checkIfExist($slug);
+        $slug = $this->checkIfExist($slug ,1);
         return $slug;
     }
-
-    public function checkIfExist($slug)
+    public function checkIfExist($slug, $i)
     {
-        $i = 1;
-        $post = Post::where('slug' , $slug)->count(); 
-        if ($post > 0) {
-            return checkIfExist($slug + '/' + $i++);
+        $postCount = Post::where('slug', $slug)->count();
+        if($postCount <= 0){
+            return $slug;
         }
-        return $slug;
+        if (!$this->checkInDatabase($slug, $i)) {
+
+            return $slug = $slug . '-' . $i;
+        }
+
+        $i = $i + 1;
+        return $this->checkIfExist($slug, $i);
     }
+ 
+    public function checkInDatabase($slug, $i)
+    {
+
+        $slug = $slug . '-' . $i;
+        $postCount = Post::where('slug', $slug)->count();
+        if ($postCount > 0) {
+            return true;
+        } else
+            return false;
+    }
+   
 }

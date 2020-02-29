@@ -1,4 +1,4 @@
-@extends('mainLayouts.main');
+@extends('mainLayouts.main')
 
 @section('content')
 <div class="card">

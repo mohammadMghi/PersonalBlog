@@ -32,5 +32,5 @@
 
 </div>
 
-<div class="btn-more mb-5"><a class="btn btn-info" href="#">دیدن مطالب بیشتر</a></div>
+<div class="btn-more mb-5"><a href="{{route('posts')}}" class="btn btn-info" href="#">دیدن مطالب بیشتر</a></div>
 @endsection
