@@ -9,9 +9,12 @@ class PostsController extends Controller
 {
     public function viewPosts()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(4);
-        $countPage= count($posts)/4;
+        $posts = Post::paginate(4);
+ 
+        $countPage=    $posts->lastpage();
         
         return view('posts' , compact('posts' , 'countPage')  )->with($countPage);
+
+        $users = DB::table('users')->simplePaginate(3);
     }
 }

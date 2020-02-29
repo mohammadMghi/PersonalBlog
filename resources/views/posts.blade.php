@@ -21,17 +21,13 @@
 </div>
 <nav aria-label="...">
   <ul class="pagination">
-    <li class="page-item ">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li> 
+ 
   
-    @for($i=0 ; $i <= $countPage ; $i++)
+    @for($i=1 ; $i <= $countPage ; $i++)
    
-    <li class="page-item"><a class="page-link" href="#">{{$i}}</a></li>
+    <li class="page-item"><a href="http://localhost:8000/posts?page={{$i}}" class="page-link" href="#">{{$i}}</a></li>
     @endfor
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
+  
   </ul>
 </nav>
 @endsection
