@@ -16,8 +16,8 @@
 
 <div class="card-deck mt-5">
     @foreach($posts as $post)
-    <div class="card ">
-        <img class="card-img-top" src="http://localhost:8000/{{$post->cover}}" alt="Card image cap">
+    <div class="card col-4">
+        <img class="card-img-top mt-3" src="http://localhost:8000/{{$post->cover}}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title" id="text-limited-post-head">{{$post->title}}</h5>
             <p class="card-text text-right" id="text-limited-post">{{ str_replace("&nbsp;","",strip_tags($post->content)) }}</p>
