@@ -19,8 +19,8 @@ class AddColumnPosts extends Migration
             $table->string('title');
             $table->text('content');
             $table->bigInteger('user_id')->unsigned();
-            
-            
+            $table->string('slug');
+    
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             

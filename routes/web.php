@@ -18,10 +18,9 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
         Route::get('register', 'RegisterController@view')->name('register.view');
     Route::post('register', 'RegisterController@register')->name('register');
     Route::get('logout', 'LoginController@logout')->name('logout');
-
     Route::get('login', 'LoginController@loginView')->name('login.view');
     Route::post('login', 'LoginController@login')->name('login');
-});
+}); 
 Route::group(['prefix' => 'panel'], function () {
     Route::get('/profile', 'ProfileController@view')->name('profile.view');
     Route::get('/sendPost', 'ProfileController@viewSendPost')->name('profile.sendPost.view');
@@ -39,7 +38,6 @@ Route::get('/post/{slu}' , 'PostController@viewPost')->name('findPost');
 //all posts
 Route::get('/posts' , 'PostsController@viewPosts')->name('posts');
 
- 
-Route::get('comment' , 'CommtentController@save')->name('comment.save');
+Route::post('comment' , 'CommentController@save')->name('comment.save');
 
 Route::get('/test' , 'ProfileController@test');
