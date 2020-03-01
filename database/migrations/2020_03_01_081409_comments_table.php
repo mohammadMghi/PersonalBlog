@@ -15,10 +15,11 @@ class CommentsTable extends Migration
     {
         Schema::create('comments' , function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->bigInteger('posts_id');
+            $table->bigInteger('post_id');
             $table->string('name');
             $table->string('email');
             $table->text('comment');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         }); 
     } 

@@ -19,6 +19,9 @@ class PostController extends Controller
     public function viewPost($slug)
     {
         $post = $this->findPostWithSlug($slug);
-        return view('post',compact('post'));
+        $comments = $post->comments;
+ 
+ 
+        return view('post',compact('post' , 'comments'));
     }
 }
