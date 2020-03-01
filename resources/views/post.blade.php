@@ -25,7 +25,7 @@
     <div class="form-group mr-5 ml-5"> 
         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="متن خود را وارد کنید" rows="3"></textarea>
     </div>
-    <button></button>
+    <button class="btn btn-success">ارسال</button>
 </form>
 
 @endsection
