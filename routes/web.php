@@ -1,5 +1,5 @@
 <?php
-
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@
 Route::get('/' , 'IndexController@view')->name('home');
 
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
-    Route::get('register', 'RegisterController@view')->name('register.view');
+        Route::get('register', 'RegisterController@view')->name('register.view');
     Route::post('register', 'RegisterController@register')->name('register');
     Route::get('logout', 'LoginController@logout')->name('logout');
 
@@ -38,5 +38,8 @@ Route::get('/post/{slu}' , 'PostController@viewPost')->name('findPost');
 
 //all posts
 Route::get('/posts' , 'PostsController@viewPosts')->name('posts');
+
+ 
+Route::get('comment' , 'CommtentController@save')->name('comment.save');
 
 Route::get('/test' , 'ProfileController@test');

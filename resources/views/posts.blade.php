@@ -1,5 +1,5 @@
 @extends('mainLayouts.main')
-
+@include('sections.navbar') 
 @section('content')
 <div class="card-deck mt-5">
     @foreach($posts as $post)
@@ -20,9 +20,7 @@
 
 </div>
 <nav aria-label="...">
-  <ul class="pagination">
- 
-  
+  <ul class="pagination mt-4 mb-5"> 
     @for($i=1 ; $i <= $countPage ; $i++)
    
     <li class="page-item"><a href="http://localhost:8000/posts?page={{$i}}" class="page-link" href="#">{{$i}}</a></li>
