@@ -38,6 +38,8 @@ Route::get('/post/{slu}' , 'PostController@viewPost')->name('findPost');
 //all posts
 Route::get('/posts' , 'PostsController@viewPosts')->name('posts');
 
+Route::get('/category/{category}' , 'PostsController@viewWithCategory');
+
 Route::post('comment' , 'CommentController@save')->name('comment.save');
 
 Route::get('/test' , 'ProfileController@test');

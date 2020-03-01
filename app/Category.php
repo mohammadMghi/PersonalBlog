@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\post;
 class Category extends Model
 {
     protected $table = "categories";
@@ -11,9 +11,9 @@ class Category extends Model
         'name' , 'sub_id'
     ]; 
 
-    public function child()
+    public function post()
     {
-        return $this->hasMany($this , 'sub_id');
+        return $this->hasMany(Post::class , 'category');
     }
 
 }

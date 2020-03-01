@@ -24,4 +24,6 @@ class PostController extends Controller
  
         return view('post',compact('post' , 'comments'));
     }
+
+   
 }
