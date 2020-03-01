@@ -1,5 +1,5 @@
 @extends('mainLayouts.main')
-
+@include('sections.navbar') 
 @section('content')
 <div class="card-deck mt-5">
     @foreach($posts as $post)
