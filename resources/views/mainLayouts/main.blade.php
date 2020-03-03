@@ -15,12 +15,36 @@
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jodit/3.1.92/jodit.min.js"></script>
-
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../css/app.css">
 
     <title>@yield('title')</title>
 </head>
+<script>
+    (function($) {
+        $(document).ready(function() {
 
+            $('#cssmenu li.active').addClass('open').children('ul').show();
+            $('#cssmenu li.has-sub>a').on('click', function() {
+                $(this).removeAttr('href');
+                var element = $(this).parent('li');
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                    element.find('li').removeClass('open');
+                    element.find('ul').slideUp(200);
+                } else {
+                    element.addClass('open');
+                    element.children('ul').slideDown(200);
+                    element.siblings('li').children('ul').slideUp(200);
+                    element.siblings('li').removeClass('open');
+                    element.siblings('li').find('li').removeClass('open');
+                    element.siblings('li').find('ul').slideUp(200);
+                }
+            });
+
+        });
+    })(jQuery);
+</script>
 <body>
 
 
@@ -47,7 +71,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
- 
+
 </body>
+
 
 </html>

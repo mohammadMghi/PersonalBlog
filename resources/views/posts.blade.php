@@ -7,10 +7,69 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
     @foreach($categorys as $category)
-    <button class="dropdown-item" type="button"><a href="../category/{{$category->id}}">{{$category->name}}</a></button> 
+    <button class="dropdown-item" type="button"><a href="../category/{{$category->id}}">{{$category->name}}</a></button>
     @endforeach
 
   </div>
+</div>
+
+<!--
+  <ul>
+   
+    <li><a href='#'>Home</a></li>
+    <li class='active has-sub'><a href='#'>Products</a>
+      <ul>
+        <li class='has-sub'><a href='#'>Product 1</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+        <li class='has-sub'><a href='#'>Product 2</a>
+          <ul>
+            <li><a href='#'>Sub Product</a></li>
+            <li><a href='#'>Sub Product</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href='#'>About</a></li>
+    <li><a href='#'>Contact</a></li>
+
+  </ul>
+ -->
+ <div id='cssmenu'>
+  <ul>
+
+    @foreach($categorys as $category1)
+    @if($category1->hasSub == false)
+    @if($category1->sub_id == "none")
+    <li><a href='#'>{{$category1->name}}</a></li>
+    @endif
+    @else
+    <li class='active has-sub'><a href='#'>{{$category1->name}}</a>
+      @foreach($categorys as $category)
+      @if($category1->id == $category->sub_id)
+      <ul>
+        @if($category->hasSub == false)
+        <li><a href='#'>{{$category->name}}</a></li>
+        @else
+        <li class='has-sub'><a href='#'>{{$category->name}}</a>
+          <ul>
+            @if($category->hasSub == false)
+            <li><a href='#'>Sub Product</a></li>
+            @endif
+
+          </ul>
+        </li>
+        @endif
+      </ul>
+      @endif
+      @endforeach
+      @endif
+    </li>
+    @endforeach
+  </ul>
 </div>
 
 <div class="card-deck mt-5">

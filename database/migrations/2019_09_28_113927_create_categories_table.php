@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('sub_id');
+            $table->boolean('hasSub')->default(false);
             $table->timestamps();
         });
     }

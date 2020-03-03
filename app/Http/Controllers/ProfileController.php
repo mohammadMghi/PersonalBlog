@@ -30,7 +30,7 @@ class ProfileController extends Controller
         $post->category = $request->category;
         $post->user_id = $request->user()->id;
         $post->slug = $makeSlug->make($request->slug);
-    
+
         $post->save();
     }
 
@@ -50,32 +50,50 @@ class ProfileController extends Controller
 
         $request->image->move(public_path('images'), $imageName);
         $imagePath = 'images/' . $imageName;
-        
+
         return $imagePath;
     }
 
     public function viewCategory()
     {
         $categories = Category::all();
-        return view('panel.editCategory',compact('categories'));
+        return view('panel.editCategory', compact('categories'));
     }
 
-    public function deleteCategory(Request $request){
-         $category = Category::find($request->input('category'));
-         $category->delete();
+    public function deleteCategory(Request $request)
+    {
+        $category = Category::find($request->input('category'));
+        $category->delete();
     }
     public function createCategory(Request $request)
     {
         $category = new Category();
         $category->sub_id = $request->input('main_category');
         $category->name = $request->input('name_category');
-        $category->save();
+
+        if ($category->save()) { 
+     
+            if (($category->sub_id != "none") || (is_int((int) $category->sub_id))) {
+               $this->checkStatusSubComment($category->sub_id);
+            }
+        }
+    }
+
+    public function checkStatusSubComment($id)
+    {
+        $categories = Category::find($id);
+        if(!$categories == null){
+            $categories->hasSub = true;
+            return $categories->save();
+        }
+        //TODO:: return exeption
+        
     }
 
     public function showPosts()
     {
         $posts = Post::all();
-        return view('panel.editPost' ,compact('posts'));
+        return view('panel.editPost', compact('posts'));
     }
 
     public function deletePost(Request $request)
@@ -92,6 +110,6 @@ class ProfileController extends Controller
     public function showEditContent(Request $request)
     {
         $post = Post::find($request->post_id);
-        return view('panel.editPostContent' , compact('post'));
+        return view('panel.editPostContent', compact('post'));
     }
 }
